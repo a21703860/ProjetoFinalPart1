@@ -90,6 +90,7 @@ class RegistFragment : Fragment() {
                     builder.create().show()
                 }
 
+
             } else {
                 val errorMessage = getString(R.string.erroRegistoFilme)
                 if (!ObjetoFilme.verificarNomeCinema(nomeCinema)) {
@@ -102,48 +103,59 @@ class RegistFragment : Fragment() {
                     binding.nomeFilmeEditText.error = errorMessage
                     Toast.makeText(
                         requireContext(),
-                        "Estão campos por preencher",
+                        getString(R.string.camposPorPreencher),
                         Toast.LENGTH_LONG
                     ).show()
                 } else if (!ObjetoFilme.percorrerFilmes(nomeFilme)) {
-                    binding.nomeFilmeEditText.error = "Filme não existe"
-                    Toast.makeText(requireContext(), "filme não existe", Toast.LENGTH_LONG).show()
+                    binding.nomeFilmeEditText.error = getString(R.string.filmeNaoExiste)
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.filmeNaoExiste),
+                        Toast.LENGTH_LONG
+                    ).show()
                 } else {
                     Toast.makeText(
                         requireContext(),
-                        "Estão campos por preencher",
+                        getString(R.string.camposPorPreencher),
                         Toast.LENGTH_LONG
                     ).show()
-
                 }
             }
+
         }
 
         binding.tirarFotoButton.setOnClickListener {
-            val options = arrayOf<CharSequence>("Tirar Foto", "Selecionar da Galeria", "Cancelar")
+            val options = arrayOf<CharSequence>(
+                getString(R.string.tirarFoto),
+                getString(R.string.selecionarGaleria),
+                getString(R.string.cancelar)
+            )
             val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Adicionar Foto")
+            builder.setTitle(getString(R.string.adicionarFoto))
 
             builder.setItems(options) { dialog, item ->
                 when {
-                    options[item] == "Tirar Foto" -> {
+                    options[item] == getString(R.string.tirarFoto) -> {
                         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                         if (takePictureIntent.resolveActivity(requireActivity().packageManager) != null) {
                             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                         }
                     }
-                    options[item] == "Selecionar da Galeria" -> {
-                        val intent =
-                            Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    options[item] == getString(R.string.selecionarGaleria) -> {
+                        val intent = Intent(
+                            Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                        )
                         startActivityForResult(intent, 2)
                     }
-                    options[item] == "Cancelar" -> {
+                    options[item] == getString(R.string.cancelar) -> {
                         dialog.dismiss()
                     }
                 }
             }
             builder.show()
         }
+
 
 
         binding.dataEditText.setOnClickListener {
@@ -188,7 +200,12 @@ class RegistFragment : Fragment() {
     }
 
     private fun removerCampos() {
-        Toast.makeText(requireContext(), "Filme registado com sucesso!", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.sucesso_registo_filme),
+            Toast.LENGTH_LONG
+        ).show()
+
         ObjetoFilme.limparCampos();
 
         binding.nomeFilmeEditText.setText(ObjetoFilme.nomeFilm)

@@ -30,11 +30,17 @@
     <string name="data_de_lancamento_detalhes">Release Date:</string>
     <string name="avaliacao_imdb_detalhes">IMDB Rating:</string>
     <string name="link_imdb_detalhes">IMDB Link:</string>
-    <string name="cancelar">Cancel</string>
     <string name="lista_vazia">Empty List</string>
     <string name="mapa">Map</string>
     <string name="topFilmes">Top 10 Movies</string>
     <string name="listaVistos">List of films seen</string>
     <string name="paraVer">Para Ver</string>
+    <string name="sucesso_registo_filme">Movie successfully registered!</string>
+    <string name="camposPorPreencher">There are fields that need to be filled in</string>
+    <string name="filmeNaoExiste">Movie does not exist</string>
+    <string name="cancelar">Cancel</string>
+    <string name="adicionarFoto">Add Photo</string>
+    <string name="tirarFoto">Take Photo</string>
+    <string name="selecionarGaleria">Select from Gallery</string>
 
 </resources>

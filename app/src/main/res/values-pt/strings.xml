@@ -36,5 +36,11 @@
     <string name="topFilmes">Top 10 Filmes</string>
     <string name="listaVistos">Lista de filmes vistos</string>
     <string name="paraVer">Para Ver</string>
+    <string name="sucesso_registo_filme">Filme registado com sucesso!</string>
+    <string name="camposPorPreencher">Existem campos que precisam ser preenchidos</string>
+    <string name="filmeNaoExiste">Filme não existe</string>
+    <string name="adicionarFoto">Adicionar Foto</string>
+    <string name="tirarFoto">Tirar Foto</string>
+    <string name="selecionarGaleria">Selecionar da Galeria</string>
 
 </resources>
